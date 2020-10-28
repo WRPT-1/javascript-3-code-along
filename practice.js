@@ -26,8 +26,8 @@ Inside this loop, change the value of each property to 0
 */
 
 function objectLooper(number) {
-    for (let key in number) {
-        // Code here
+    for (let prop in number) {
+        number[prop] = 0// Code here
     }
     return number;
 };
@@ -51,7 +51,11 @@ If a value is greater than 3,000,000 set it to 0
 
 function stateLooper(obj) {
 	for (let key in obj) {
-		// Code here
+		// if(obj[key] > 3000000) {
+        //     return obj[key] = 0
+        // }// Code here
+
+        if(obj[key] > 3000000) obj[key] = 0
 	}
 	return obj;
 };
@@ -66,7 +70,11 @@ Once all falsy values and their properties are removed, return the object
 */
 
 function cleanUser(obj) {
-    // Code here
+    for(let key in obj) {
+        if(!obj[key]) delete obj[key]
+    }
+    
+    return obj// Code here
 };
 
 
@@ -77,7 +85,13 @@ Create a function called maxedOut that takes a user object and loops over that o
 Return the updated user object
 */
 
-// Code here
+let maxedOut = (user) => {
+    for(let key in user) {
+        user[key] = 'max'
+    }
+
+    return user
+}// Code here
 
 
 
@@ -305,7 +319,9 @@ The function should return the product of the two parameters
 You should not use the ES5 function declaration or function expression syntax in your final solution
 */
 
-// Code here
+let multiply = (num1, num2) => {
+    return num1 * num2
+}// Code here
 
 
 
@@ -317,6 +333,12 @@ The function should return a single concatenated (joined) str of str1 and str2
 
 You should not use the ES5 function declaration or function expression syntax in your final solution
 */
+
+// let concatenate = (str1, str2) => {
+//     return str1 + str2
+// }
+
+let concatenate = (str1, str2) => str1 + str2
 
 // Code here
 
@@ -332,7 +354,28 @@ The values of each property should correspond to its respective parameter
 You should not use the ES5 function declaration or function expression syntax in your final solution
 */
 
-// Code here
+let gemInfo = (gemType, gemSize, gemWeight) => {
+    // let obj = {
+    //     gemType: gemType,
+    //     gemSize: gemSize,
+    //     gemWeight: gemWeight
+    // }
+
+    // return obj
+
+    return {
+        gemType: gemType,
+        gemSize: gemSize,
+        gemWeight: gemWeight
+    }
+
+    // return {
+    //     gemType,
+    //     gemSize,
+    //     gemWeight
+    // } 
+
+}// Code here
 
 
 
@@ -358,7 +401,19 @@ let jobs = [
 // Do not edit the code above.
 
 
-// Code here
+let identifier = () => {
+    // let filteredArray = jobs.filter(function(element, index, array){
+    //     if(element.programmer) {
+    //         return element
+    //     }
+    // })
+
+    let filteredArray = jobs.filter(e => e.programmer)
+
+    // filteredArray => [{programmer: 'Steve'}]
+
+    return filteredArray[0]
+}// Code here
 
 
 
